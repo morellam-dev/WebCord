@@ -380,6 +380,12 @@ function main(): void {
       if (mainWindow.isMinimized()) mainWindow.restore();
       mainWindow.focus();
     });
+    // macOS: Show main window when clicking dock icon 
+    app.on("activate", () => {
+      if (!mainWindow.isVisible()) mainWindow.show();
+      if (mainWindow.isMinimized()) mainWindow.restore();
+      mainWindow.focus();
+    });
   }
 }
 
